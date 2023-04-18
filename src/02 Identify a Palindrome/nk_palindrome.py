@@ -6,7 +6,7 @@ def is_palindrome(words):
 
     final_extract = extract.lower()
 
-    if (final_extract == final_extract[::-1]):
+    if final_extract == final_extract[::-1]:
         return True
     else:
         return False
