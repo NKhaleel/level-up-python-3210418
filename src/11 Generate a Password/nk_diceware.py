@@ -11,8 +11,9 @@ def generate_passphrase(words, wordlist_path="diceware.wordlist.asc"):
     words_all = []
 
     for i in range(words):
+        r = [secrets.choice(range(1, 6)) for _ in range(5)]
         search.append("".join(str(e)
-                      for e in secrets.choices(range(1, 6), k=5)))
+                      for e in r))
 
     for code in search:
         words_all.append(word_list[num_list.index(code)])
