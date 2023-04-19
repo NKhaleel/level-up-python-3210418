@@ -1,4 +1,4 @@
-import random
+import secrets
 
 
 def generate_passphrase(words, wordlist_path="diceware.wordlist.asc"):
@@ -12,7 +12,7 @@ def generate_passphrase(words, wordlist_path="diceware.wordlist.asc"):
 
     for i in range(words):
         search.append("".join(str(e)
-                      for e in random.choices(range(1, 6), k=5)))
+                      for e in secrets.choices(range(1, 6), k=5)))
 
     for code in search:
         words_all.append(word_list[num_list.index(code)])
