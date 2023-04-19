@@ -1,0 +1,23 @@
+import random
+from collections import Counter
+
+
+def roll_dice(*args, num_trials=1_000_000):
+    if len(args) > 1:
+        min_count = len(args)
+        max_count = sum(args) + 1  # for range
+    else:
+        min_count = 1
+        max_count = sum(args) + 1  # for range
+
+    c = Counter(range(min_count, max_count))
+    dice_count = Counter({x: 0 for x in c})
+
+    for _ in range(num_trials):
+        roll = 0
+        for i in args:
+            roll += random.randint(1, i)
+        dice_count.update([roll])
+
+    for c in dice_count:
+        print(c, str(100*dice_count[c]/num_trials) + "%")
